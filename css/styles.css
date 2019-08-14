@@ -1,0 +1,24 @@
+body {
+  font-family: sans-serif;
+  color: #333333;
+  text-align: center;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+canvas {
+  background-color: #FFFFFF;
+  padding: 0;
+  margin: 0;
+}
+
+.urgent {
+  color: #FFEEEE;
+  background-color: #BB5555;
+  padding: 1rem;
+  margin: 1% 25%;
+  outline-color: #AA6666;
+  outline-style: inset;
+  outline-width: thick;
+}
