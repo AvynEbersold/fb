@@ -155,7 +155,7 @@ jump.volume = 0.75;
 var crash = new Audio("sounds/FB_Crash.wav");
 crash.volume = 1;
 
-var theme = new Audio("sounds/FB_Theme.wav");
+var theme = new Audio("sounds/FB_Theme.mp3");
 theme.volume = 0.3;
 theme.loop = true;
 
