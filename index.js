@@ -354,6 +354,9 @@ function displayMenu() {
 
 function input(e) {
   theme.play();
+  if(e.keyCode == 32 && e.target == document.body) { //STOPS WEBSITE FROM SCROLLING DOWN WHEN SPACE IS PRESSED
+    e.preventDefault();
+  }
   if(game.gameOver == true){
     if(gameReady() == true){
       restartGame();
