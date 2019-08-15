@@ -354,6 +354,9 @@ function displayMenu() {
 
 function input(e) {
   theme.play();
+  if(e.key == "Escape"){
+    window.close(); 
+  }
   if(game.gameOver == true){
     if(gameReady() == true){
       restartGame();
