@@ -12,3 +12,11 @@ canvas {
   padding: 0;
   margin: 0;
 }
+
+.warning{
+  background-color: #FFF8C9;
+  border: 2px solid #F7E25C;
+  border-radius: 0.5rem;
+  margin: 1rem auto;
+  width: 50%;
+}
