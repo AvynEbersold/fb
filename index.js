@@ -354,10 +354,6 @@ function displayMenu() {
 
 function input(e) {
   theme.play();
-  if(e.key == "Escape"){
-    alert("Escape key was pressed.");
-    window.close(); 
-  }
   if(game.gameOver == true){
     if(gameReady() == true){
       restartGame();
