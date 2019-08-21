@@ -1,4 +1,4 @@
-# Flapper Birder
+# Flapper Burger
 A Flappy Bird style game built on pure HTML/CSS/JS.
 Game and website programming is done by avynebersold, and sounds
 are done by users on freesound.org. (links on website).
