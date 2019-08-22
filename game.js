@@ -40,7 +40,8 @@ let game = {
   gameDarkness: 0,
   gameDarknessEndPoint: 0.4,
   gameDarknessStartPoint: 0,
-  darknessIncrement: 0.01
+  darknessIncrement: 0.01,
+  acceptableKeyCodes: [32, 38, undefined] //ACCEPTED KEYS ARE SPACE AND UP ARROW. MOUSE CLICKS ARE ACCEPTED TOO
 };
 
 let images = {
@@ -358,24 +359,26 @@ function displayMenu() {
 //////////////////////////////////////////////////////////////////////////////
 
 function input(e) {
-  checkButtonsClick(e);
   theme.play();
   if(game.gameOver == true){
-    if(gameReady() == true){
+    checkButtonsClick(e);
+    if(gameReady() == true && e.keyCode != undefined){
       restartGame();
     }
   } else {
     if (player.dead == false) {
-      if (e.keyCode == 32 || e.keyCode == undefined) { //SPACE... I THINK....
-        if(player.jumpReady){ //JUMPS AND CANNOT JUMP AGAIN UNTIL KEY IS RELEASED
-          player.pullY = player.jumpForce * -1;
-          jump.play();
-          player.jumpReady = false;
-        }
-        if (game.gameActive != true) {
-          theme.pause();
-          theme.play();
-          game.gameActive = true;
+      for(let i = 0; i < game.acceptableKeyCodes.length; i++){
+        if(e.keyCode == game.acceptableKeyCodes[i]){ //CHECKS FOR VALID JUMP KEYS
+          if(player.jumpReady){ //JUMPS AND CANNOT JUMP AGAIN UNTIL KEY IS RELEASED
+            player.pullY = player.jumpForce * -1;
+            jump.play();
+            player.jumpReady = false;
+          }
+          if (game.gameActive != true) {
+            theme.pause();
+            theme.play();
+            game.gameActive = true;
+          }
         }
       }
     }
@@ -432,8 +435,10 @@ function checkButtonsClick(e){
 }
 
 function readyJump(e){
-  if(e.keyCode == 32){ //SPACE
-    player.jumpReady = true;
+  for(let i = 0; i < game.acceptableKeyCodes.length; i++){
+    if(e.keyCode == game.acceptableKeyCodes[i]){ //CHECKS FOR VALID JUMP KEYS
+      player.jumpReady = true;
+    }
   }
 }
 
@@ -559,5 +564,9 @@ window.addEventListener("keyup", readyJump, false);
 
 //////////////////////////////////////////////////////////////////////////////
 
-canvas.addEventListener('mousemove', checkButtonsHover, false);
 canvas.addEventListener('mousedown', input, false);
+canvas.addEventListener("mouseup", readyJump, false);
+
+//////////////////////////////////////////////////////////////////////////////
+
+canvas.addEventListener('mousemove', checkButtonsHover, false);
