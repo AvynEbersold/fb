@@ -358,6 +358,7 @@ function displayMenu() {
 //////////////////////////////////////////////////////////////////////////////
 
 function input(e) {
+  checkButtonsClick(e);
   theme.play();
   if(game.gameOver == true){
     if(gameReady() == true){
@@ -365,7 +366,7 @@ function input(e) {
     }
   } else {
     if (player.dead == false) {
-      if (e.keyCode == 32 && game.gameOver != true) { //SPACE... I THINK....
+      if (e.keyCode == 32 || e.keyCode == undefined) { //SPACE... I THINK....
         if(player.jumpReady){ //JUMPS AND CANNOT JUMP AGAIN UNTIL KEY IS RELEASED
           player.pullY = player.jumpForce * -1;
           jump.play();
@@ -559,4 +560,4 @@ window.addEventListener("keyup", readyJump, false);
 //////////////////////////////////////////////////////////////////////////////
 
 canvas.addEventListener('mousemove', checkButtonsHover, false);
-canvas.addEventListener('mousedown', checkButtonsClick, false);
+canvas.addEventListener('mousedown', input, false);
