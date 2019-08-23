@@ -44,6 +44,24 @@ let game = {
   acceptableKeyCodes: [32, 38, undefined] //ACCEPTED KEYS ARE SPACE AND UP ARROW. MOUSE CLICKS ARE ACCEPTED TOO
 };
 
+game.originalWidth = game.width;
+game.originalHeight = game.height;
+
+let widthRatio = game.width / game.height; //RESIZES THE CANVAS TO BE AS LARGE AS POSSIBLE WHILE RETAINING CANVAS WIDTH TO HEIGHT RATIO
+let heightRatio = game.height / game.width;
+
+game.width = window.innerWidth;
+game.height = game.width * heightRatio;
+
+if(game.height > window.innerHeight){
+  game.height = window.innerHeight;
+  game.width = game.height * widthRatio;
+}
+
+game.scrollSpeed = game.width / 400; //SETS THE SCROLLSPEED TO BE PROPORTIONAL TO THE SIZE OF THE CANVAS
+
+//////////////////////////////////////////////////////////////////////////////
+
 let images = {
   groundScrollSpeed: game.scrollSpeed / 2,
   firstGround: true,
@@ -70,7 +88,7 @@ let score = {
   content: 0,
   preContent: "SCORE: ",
   font: "Monospace",
-  size: "50px",
+  size: (game.width / 16) + "px",
   x: (game.width / 8) * 7,
   y: game.height / 8,
   gameoverX: game.width * (1 / 2),
@@ -88,7 +106,7 @@ let player = {
   dead: false,
   jumpForce: (game.height * game.tunnelHeight) / 60,
   deathJump: 5,
-  gravity: 0.5,
+  gravity: game.height / 1200,
   bounce: 0,
   groundY: game.height * game.tunnelHeight,
   ceilingY: 0
@@ -155,19 +173,19 @@ start.src = "images/FB_Start.png";
 
 //////////////////////////////////////////////////////////////////////////////
 
-var jump = new Audio("sounds/FB_Jump.wav");
+let jump = new Audio("sounds/FB_Jump.wav");
 jump.volume = 0.75;
 
-var crash = new Audio("sounds/FB_Crash.wav");
+let crash = new Audio("sounds/FB_Crash.wav");
 crash.volume = 1;
 
-var theme = new Audio("sounds/FB_Theme.mp3");
+let theme = new Audio("sounds/FB_Theme.mp3");
 theme.volume = 0.3;
 theme.loop = true;
 
 //////////////////////////////////////////////////////////////////////////////
 
-var startButton = new MenuButton(start, game.width / 2, game.height * (2 / 5), game.width / 4, game.height / 3, restartGame, gameReady);
+let startButton = new MenuButton(start, game.width / 2, game.height * (2 / 5), game.width / 4, game.height / 3, restartGame, gameReady);
 
 //////////////////////////////////////////////////////////////////////////////
 
@@ -267,7 +285,7 @@ function displayForeground() {
     c.translate(player.x + ((game.width / player.size) / 2), player.y + ((game.height / player.size) / 2));
 
     if(player.rotationAmount - player.pullY < player.rotationSpeed * player.pullY || player.pullY - player.rotationAmount < player.rotationSpeed * player.pullY){
-      player.rotationAmount = player.rotationSpeed * player.pullY;
+      player.rotationAmount = (player.rotationSpeed * player.pullY);
     }
 
     c.rotate(player.rotationAmount);
