@@ -58,6 +58,7 @@ if(game.height > window.innerHeight){
   game.width = game.height * widthRatio;
 }
 
+game.floppiness = game.originalHeight / game.width;
 game.scrollSpeed = game.width / 400; //SETS THE SCROLLSPEED TO BE PROPORTIONAL TO THE SIZE OF THE CANVAS
 
 //////////////////////////////////////////////////////////////////////////////
@@ -100,12 +101,12 @@ let player = {
   x: 0,
   y: 0,
   jumpReady: true,
-  rotationSpeed: 0.08, //SPEED AND STANDARD AMOUNT OF ROTATION
+  rotationSpeed: 0.12, //SPEED AND STANDARD AMOUNT OF ROTATION
   rotationAmount: 0, //THE OVERALL DIRECTION OF THE PLAYER
   pullY: 0,
   dead: false,
   jumpForce: (game.height * game.tunnelHeight) / 60,
-  deathJump: 5,
+  deathJump: (game.height * game.tunnelHeight) / 40,
   gravity: game.height / 1200,
   bounce: 0,
   groundY: game.height * game.tunnelHeight,
@@ -285,7 +286,7 @@ function displayForeground() {
     c.translate(player.x + ((game.width / player.size) / 2), player.y + ((game.height / player.size) / 2));
 
     if(player.rotationAmount - player.pullY < player.rotationSpeed * player.pullY || player.pullY - player.rotationAmount < player.rotationSpeed * player.pullY){
-      player.rotationAmount = (player.rotationSpeed * player.pullY);
+      player.rotationAmount = (player.rotationSpeed * (player.pullY * game.floppiness));
     }
 
     c.rotate(player.rotationAmount);
