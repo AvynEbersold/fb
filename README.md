@@ -16,3 +16,6 @@ pull requests after making sure the changes are real improvements.
 # Report Any Bugs Immediatly
 If you send me an error, I will be sure to quickly fix it and 
 prevent it from happening again in the future.
+
+#Current Errors
+The burger currently rotates too much on large screens and too little on small screens. Please help if you can!
