@@ -106,7 +106,7 @@ let player = {
   pullY: 0,
   dead: false,
   jumpForce: (game.height * game.tunnelHeight) / 60,
-  deathJump: (game.height * game.tunnelHeight) / 40,
+  deathJump: (game.height * game.tunnelHeight) / 120,
   gravity: game.height / 1200,
   bounce: 0,
   groundY: game.height * game.tunnelHeight,
