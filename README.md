@@ -3,10 +3,9 @@ A Flappy Bird style game built on pure HTML/CSS/JS.
 Game and website programming is done by avynebersold, and sounds
 are done by users on freesound.org. (links on website).
 
-# Website & Copyright
+# Website
 The website for this repository is avynebersold.github.io/fb/.
-This game has no copyright liscense but I would not like 
-anyone to use this code anywhere without my explicit permission.
+Play the game there.
 
 # Please Contribute!
 I would be estatic if anyone would like to contribute any changes to 
@@ -18,4 +17,4 @@ If you send me an error, I will be sure to quickly fix it and
 prevent it from happening again in the future.
 
 # Current Errors
-No current errors. Let me know if you find any.
+Page won't show up on Google Searches. I've already indexed the page with Google Search Console, so I'm not sure what the issue is.
