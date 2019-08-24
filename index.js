@@ -7,7 +7,7 @@ IS PROVIDED FOR IN GAME.JS.*/
 
 //////////////////////////////////////////////////////////////////////////////
 
-window.onload = function(){
+window.onload = function(){ //RUN THIS ONCE THE PAGE HAS LOADED
   document.getElementById("js-warning").style.display = "none";
 
   //////////////////////////////////////////////////////////////////////////////
@@ -22,3 +22,9 @@ window.onload = function(){
 
   document.addEventListener("keydown", preventScrollOnSpace);
 };
+
+function reloadPage(){
+  location.reload();
+}
+
+window.addEventListener("resize", reloadPage);
