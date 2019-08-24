@@ -24,7 +24,6 @@ window.onload = function(){ //RUN THIS ONCE THE PAGE HAS LOADED
 };
 
 function reloadPage(){
-  alert("Page resized");
   location.reload();
 }
 
