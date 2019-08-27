@@ -17,4 +17,4 @@ If you send me an error, I will be sure to quickly fix it and
 prevent it from happening again in the future.
 
 # Current Errors
-Page won't show up on Google Searches. I've already indexed the page with Google Search Console, so I'm not sure what the issue is.
+None.
