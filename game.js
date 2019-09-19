@@ -317,9 +317,7 @@ function moveForeground() {
         game.gameOver = true;
       }
     }
-  }
-
-  if(game.gameStopped != true && game.gameActive == true){
+    if(game.gameStopped != true && game.gameActive == true && player.dead == false){
     for (let i = 0; i < obstacleObject.obstacles.length; i++) {
       obstacleObject.obstacles[i].x -= game.scrollSpeed;
 
@@ -337,6 +335,7 @@ function moveForeground() {
       }
     }
       game.distanceTraveled += game.scrollSpeed;
+  }
   }
 }
 
