@@ -89,7 +89,7 @@ let images = {
 };
 
 let obstacleObject = {
-  spawnWait: game.width / 4,
+  spawnWait: game.width / 6,
   retractSpeed: 1,
   distanceIncrement: game.width / 2,
   obstacleWidth: 0.15,
