@@ -91,7 +91,7 @@ let images = {
 let obstacleObject = {
   spawnWait: game.width / 6,
   retractSpeed: 1,
-  distanceIncrement: game.width / 2,
+  distanceIncrement: game.width / 4,
   obstacleWidth: 0.15,
   obstacleHeight: game.height,
   gapHeight: (game.tunnelHeight * game.height) * (1 / 3),
