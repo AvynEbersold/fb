@@ -94,7 +94,7 @@ let obstacleObject = {
   distanceIncrement: game.width / 3,
   obstacleWidth: 0.15,
   obstacleHeight: game.height,
-  gapHeight: (game.tunnelHeight * game.height) * (1 / 3),
+  gapHeight: (game.tunnelHeight * game.height) * (2/5),
   obstacles: []
 };
 
